@@ -1,6 +1,8 @@
 include: package:flutter_lints/flutter.yaml
 
 analyzer:
+  plugins:
+    - dart_code_metrics
   exclude:
     - "example/**"
     - "build/**"
@@ -22,7 +24,7 @@ dart_code_metrics:
     number-of-parameters: 4
     source-lines-of-code: 50
   metrics-exclude:
-    - test/**
+    - "test/**"
   rules:
     - newline-before-return
     - prefer-trailing-comma
