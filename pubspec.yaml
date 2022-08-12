@@ -12,11 +12,36 @@ dependencies:
 
   cupertino_icons: ^1.0.2
 
+  # 状態管理
+  flutter_hooks: ^0.18.0
+  hooks_riverpod: ^2.0.0-dev.9
+
+  # ロギング周り
+  logging: ^1.0.2
+  stack_trace: ^1.10.0
+
+  # 通信回り
+  http: ^0.13.5
+
+  # メタプログラミング
+  freezed_annotation: ^2.1.0
+  json_annotation: ^4.6.0
+
+  # ルーティング
+  go_router: ^4.2.7
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  # Lints
   flutter_lints: ^2.0.0
+
+  # メタプログラミング
+  build_runner: ^2.2.0
+  freezed: ^2.1.0+1
+  json_serializable: ^6.3.1
+  dart_code_metrics: ^4.17.0
 
 flutter:
   uses-material-design: true
