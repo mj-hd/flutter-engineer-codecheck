@@ -42,13 +42,21 @@ void main() async {
         ),
       );
 
-      var state = container.read(githubRepositoriesProvider(query));
+      var state = container.read(
+        githubRepositoriesProvider(
+          const GithubRepositoriesParam(query: query),
+        ),
+      );
 
       expect(state.isLoading, true);
 
       async.flushMicrotasks();
 
-      state = container.read(githubRepositoriesProvider(query));
+      state = container.read(
+        githubRepositoriesProvider(
+          const GithubRepositoriesParam(query: query),
+        ),
+      );
 
       expect(state.isLoading, false);
       expect(state.error, null);
