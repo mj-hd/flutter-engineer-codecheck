@@ -11,6 +11,8 @@ analyzer:
 
 linter:
   rules:
+    # useEffectと相性が悪いため無効化
+    body_might_complete_normally_nullable: false
 
 dart_code_metrics:
   anti-patterns:
