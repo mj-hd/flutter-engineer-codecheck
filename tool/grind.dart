@@ -8,40 +8,79 @@ void main(args) => grind(args);
 
 @Task()
 Future<void> start() async {
+  final flutter = provideFlutterCommand();
   await Future.any([
-    runAsync('fvm', arguments: [
-      'flutter',
+    runAsync(flutter.exec, arguments: [
+      ...flutter.prefix,
       'pub',
       'run',
       'build_runner',
       'watch',
     ]),
     runAsync(
-      'fvm',
-      arguments: ['flutter', 'run'],
+      flutter.exec,
+      arguments: [...flutter.prefix, 'run'],
     ),
   ]);
 }
 
 @Task()
 void analyze() {
-  run('fvm', arguments: ['flutter', 'pub', 'run', 'build_runner', 'build']);
-  run('fvm', arguments: ['flutter', 'analyze']);
+  final flutter = provideFlutterCommand();
+  run(
+    flutter.exec,
+    arguments: [...flutter.prefix, 'pub', 'run', 'build_runner', 'build'],
+  );
+  run(flutter.exec, arguments: [...flutter.prefix, 'analyze']);
 }
 
 @Task()
 void test() {
-  run('fvm', arguments: ['flutter', 'pub', 'run', 'build_runner', 'build']);
-  run('fvm', arguments: ['flutter', 'test']);
+  final flutter = provideFlutterCommand();
+  run(
+    flutter.exec,
+    arguments: [...flutter.prefix, 'pub', 'run', 'build_runner', 'build'],
+  );
+  run(flutter.exec, arguments: [...flutter.prefix, 'test']);
 }
 
 @DefaultTask()
 void build() {
-  run('fvm', arguments: ['flutter', 'pub', 'run', 'build_runner', 'build']);
-  run('fvm', arguments: ['flutter', 'build']);
+  final flutter = provideFlutterCommand();
+  run(
+    flutter.exec,
+    arguments: [...flutter.prefix, 'pub', 'run', 'build_runner', 'build'],
+  );
+  run(flutter.exec, arguments: [...flutter.prefix, 'build']);
 }
 
 @Task()
 void clean() {
-  run('fvm', arguments: ['flutter', 'clean']);
+  final flutter = provideFlutterCommand();
+  run(flutter.exec, arguments: [...flutter.prefix, 'clean']);
+}
+
+class FlutterCommand {
+  FlutterCommand({
+    required this.exec,
+    required this.prefix,
+  });
+
+  FlutterCommand.native()
+      : exec = 'flutter',
+        prefix = [];
+
+  FlutterCommand.fvm()
+      : exec = 'fvm',
+        prefix = ['flutter'];
+
+  final String exec;
+  final List<String> prefix;
+}
+
+FlutterCommand provideFlutterCommand() {
+  final args = context.invocation.arguments;
+  bool useNativeFlutter = args.getFlag('use-native-flutter');
+
+  return useNativeFlutter ? FlutterCommand.native() : FlutterCommand.fvm();
 }
