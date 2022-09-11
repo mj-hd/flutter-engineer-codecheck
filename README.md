@@ -1,5 +1,48 @@
 # 株式会社ゆめみ Flutter エンジニアコードチェック課題
 
+## 環境
+
+[fvm](https://fvm.app/)を推奨しています。
+基本的なタスクは[grinder](https://pub.dev/packages/grinder)を用いています。
+
+## 実行
+
+```sh
+fvm flutter pub run grinder start
+```
+
+build_runnerのwatchとdevモードのアプリが起動します。
+
+
+## ビルド
+
+```sh
+fvm flutter pub run grinder build
+```
+Android向けにビルドできます。
+
+## ビルド (for web)
+
+```sh
+fvm flutter pub run grinder buildweb
+```
+Web向けにビルドできます。
+
+## analyze, test
+
+```sh
+fvm flutter pub run grinder analyze
+```
+```sh
+fvm flutter pub run grinder test
+```
+で静的解析やテストを実行できます。
+
+---
+以下元README.md
+
+# 株式会社ゆめみ Flutter エンジニアコードチェック課題
+
 本プロジェクトは株式会社ゆめみ（以下弊社）が、弊社に Flutter エンジニアを希望する方に出す課題用のプロジェクトです。 本課題が与えられた方は、以下を詳しく読んだ上で課題に取り組んでください。
 
 ## 概要
