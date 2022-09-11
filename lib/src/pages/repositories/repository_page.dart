@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:github_viewer/src/contexts/github/repositories/states/repository.dart';
+import 'package:github_viewer/src/utils/hooks/use_handle_async_value_errors.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class RepositoryPage extends HookConsumerWidget {
@@ -22,6 +23,8 @@ class RepositoryPage extends HookConsumerWidget {
         ),
       ),
     );
+
+    useHandleAsyncValueErrors([repository]);
 
     return Scaffold(
       appBar: AppBar(
