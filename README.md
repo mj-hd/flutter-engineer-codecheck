@@ -1,5 +1,7 @@
 # 株式会社ゆめみ Flutter エンジニアコードチェック課題
 
+デプロイ先: https://mj-hd.github.io/flutter-engineer-codecheck/
+
 ## 環境
 
 [fvm](https://fvm.app/)を推奨しています。
