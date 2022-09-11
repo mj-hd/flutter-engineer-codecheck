@@ -61,16 +61,19 @@ void build() {
 
 @Task()
 void buildweb() {
+  TaskArgs args = context.invocation.arguments;
   final flutter = provideFlutterCommand();
   run(
     flutter.exec,
     arguments: [...flutter.prefix, 'pub', 'run', 'build_runner', 'build'],
   );
+  final baseHref = args.getOption('base-href');
   run(flutter.exec, arguments: [
     ...flutter.prefix,
     'build',
     'web',
     '--release',
+    if (baseHref != null) '--base-href=$baseHref',
   ]);
 }
 
