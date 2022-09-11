@@ -51,7 +51,27 @@ void build() {
     flutter.exec,
     arguments: [...flutter.prefix, 'pub', 'run', 'build_runner', 'build'],
   );
-  run(flutter.exec, arguments: [...flutter.prefix, 'build']);
+  run(flutter.exec, arguments: [
+    ...flutter.prefix,
+    'build',
+    'apk',
+    '--release',
+  ]);
+}
+
+@Task()
+void buildweb() {
+  final flutter = provideFlutterCommand();
+  run(
+    flutter.exec,
+    arguments: [...flutter.prefix, 'pub', 'run', 'build_runner', 'build'],
+  );
+  run(flutter.exec, arguments: [
+    ...flutter.prefix,
+    'build',
+    'web',
+    '--release',
+  ]);
 }
 
 @Task()
