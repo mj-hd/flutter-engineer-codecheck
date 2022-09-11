@@ -30,6 +30,9 @@ dependencies:
   # ルーティング
   go_router: ^4.2.7
 
+  # UI周りのロジック
+  rxdart: ^0.27.5
+
 dev_dependencies:
   # テスト
   flutter_test:
@@ -39,6 +42,7 @@ dev_dependencies:
 
   # Lints
   flutter_lints: ^2.0.0
+  flutter_hooks_lint_plugin: ^0.5.2
 
   # メタプログラミング
   build_runner: ^2.2.0

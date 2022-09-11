@@ -3,6 +3,7 @@ include: package:flutter_lints/flutter.yaml
 analyzer:
   plugins:
     - dart_code_metrics
+    - flutter_hooks_lint_plugin
   exclude:
     - "example/**"
     - "build/**"
