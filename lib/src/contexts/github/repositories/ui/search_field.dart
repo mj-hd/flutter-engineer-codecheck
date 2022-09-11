@@ -20,6 +20,9 @@ class SearchField extends HookWidget {
     useDebouncedTextChanged(controller, timespan, onChanged);
 
     return TextField(
+      decoration: const InputDecoration(
+        label: Text('Repository name'),
+      ),
       focusNode: focusNode,
       controller: controller,
       autofocus: true,
